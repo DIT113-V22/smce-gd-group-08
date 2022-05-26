@@ -27,7 +27,8 @@ var environments: Dictionary = {
 
 var vehicles: Dictionary = {
 	"RayCar": load("res://src/objects/ray_car/RayCar.tscn"),
-	"RayTank": load("res://src/objects/ray_car/RayTank.tscn")
+	"RayTank": load("res://src/objects/ray_car/RayTank.tscn"),
+	"WorkCar": load("res://src/objects/work_car/WorkCar.gd")
 }
 
 var user_dir: String = OS.get_user_data_dir() setget set_user_dir
@@ -50,11 +51,11 @@ func set_last_open_directory(path):
 	file.store_string(last_open_directory)
 
 var _classes: Array = [
-	AnalogRaycast, BrushedMotor,
+	AnalogRaycast, BrushedMotor, 
 	load("res://src/attachments/Camera.gd"),
 	load("res://src/attachments/Gyroscope.gd"),
 	load("res://src/utilities/sensors/odometer/Odometer.gd"),
-	RayCar, RayWheel, UltraSonic,
+	RayCar, RayWheel, UltraSonic, WorkCar, WorkWheel, 
 	load("res://src/attachments/Odometer.gd")]
 
 var classes: Dictionary = {}
