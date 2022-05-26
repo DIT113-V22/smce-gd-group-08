@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attachments/AnalogRaycast.gd"
 }, {
-"base": "",
+"base": "Reference",
 "class": "AnyTask",
 "language": "NativeScript",
 "path": "res://src/bind/AnyTask.gdns"
@@ -24,17 +24,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/utilities/toggleable_bgroup/BButtonGroup.gd"
 }, {
-"base": "",
+"base": "Node",
 "class": "Board",
 "language": "NativeScript",
 "path": "res://src/bind/Board.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "BoardConfig",
 "language": "NativeScript",
 "path": "res://src/bind/BoardConfig.gdns"
 }, {
-"base": "",
+"base": "Node",
 "class": "BoardView",
 "language": "NativeScript",
 "path": "res://src/bind/BoardView.gdns"
@@ -59,7 +59,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/utilities/controllable_camera/ControllableCamera.gd"
 }, {
-"base": "",
+"base": "Reference",
 "class": "FrameBufferConfig",
 "language": "NativeScript",
 "path": "res://src/bind/FrameBufferConfig.gdns"
@@ -69,12 +69,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/utilities/controllable_camera/FreeCam.gd"
 }, {
-"base": "",
+"base": "Reference",
 "class": "GDResult",
 "language": "NativeScript",
 "path": "res://src/bind/GDResult.gdns"
 }, {
-"base": "",
+"base": "RayCast",
+"class": "GP2D120",
+"language": "GDScript",
+"path": "res://src/attachments/Demo.gd"
+}, {
+"base": "Reference",
 "class": "GpioDriverConfig",
 "language": "NativeScript",
 "path": "res://src/bind/GpioDriverConfig.gdns"
@@ -119,7 +124,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/bind/SMCE.gd"
 }, {
-"base": "",
+"base": "Reference",
 "class": "SecureDigitalStorage",
 "language": "NativeScript",
 "path": "res://src/bind/SecureDigitalStorage.gdns"
@@ -139,7 +144,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/ui/simple_notification/SimpleNotification.gd"
 }, {
-"base": "",
+"base": "Reference",
 "class": "Sketch",
 "language": "NativeScript",
 "path": "res://src/bind/Sketch.gdns"
@@ -159,17 +164,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/ui/temp_tween/TempTween.gd"
 }, {
-"base": "",
+"base": "Node",
 "class": "Toolchain",
 "language": "NativeScript",
 "path": "res://src/bind/Toolchain.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "UartChannelConfig",
 "language": "NativeScript",
 "path": "res://src/bind/UartChannelConfig.gdns"
 }, {
-"base": "",
+"base": "Node",
 "class": "UartSlurper",
 "language": "NativeScript",
 "path": "res://src/bind/UartSlurper.gdns"
@@ -183,16 +188,6 @@ _global_script_classes=[ {
 "class": "Util",
 "language": "GDScript",
 "path": "res://src/utilities/Util.gd"
-}, {
-"base": "RigidBody",
-"class": "WorkCar",
-"language": "GDScript",
-"path": "res://src/objects/work_car/WorkCar.gd"
-}, {
-"base": "RayCast",
-"class": "WorkWheel",
-"language": "GDScript",
-"path": "res://src/utilities/work_wheel/WorkWheel.gd"
 } ]
 _global_script_class_icons={
 "AnalogRaycast": "",
@@ -208,6 +203,7 @@ _global_script_class_icons={
 "FrameBufferConfig": "",
 "FreeCam": "",
 "GDResult": "",
+"GP2D120": "",
 "GpioDriverConfig": "",
 "LockedCam": "",
 "NodeVisualizer": "",
@@ -229,9 +225,7 @@ _global_script_class_icons={
 "UartChannelConfig": "",
 "UartSlurper": "",
 "UltraSonic": "",
-"Util": "",
-"WorkCar": "",
-"WorkWheel": ""
+"Util": ""
 }
 
 [application]
