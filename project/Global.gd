@@ -54,7 +54,7 @@ var _classes: Array = [
 	load("res://src/attachments/Camera.gd"),
 	load("res://src/attachments/Gyroscope.gd"),
 	load("res://src/utilities/sensors/odometer/Odometer.gd"),
-	RayCar, RayWheel, UltraSonic,
+	RayCar, RayWheel, UltraSonic, WorkCar, WorkWheel,
 	load("res://src/attachments/Odometer.gd")]
 
 var classes: Dictionary = {}
