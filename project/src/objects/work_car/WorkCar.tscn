@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/utilities/work_wheel/WorkWheel.gd" type="Script" id=1]
 [ext_resource path="res://media/models/car_parts/SMCE-hull.tscn" type="PackedScene" id=2]
@@ -8,15 +8,6 @@
 [ext_resource path="res://src/attachments/BrushedMotor.gd" type="Script" id=7]
 [ext_resource path="res://src/attachments/Gyroscope.gd" type="Script" id=8]
 [ext_resource path="res://src/attachments/Odometer.gd" type="Script" id=9]
-
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 1, 0.126468, 1.27087 )
-
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 0.628528, 0.232967, 0.868031 )
-
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 1.92613, 0.140498, 0.426843 )
 
 [node name="WorkCar" type="RigidBody"]
 custom_integrator = true
@@ -32,70 +23,54 @@ right_motor = NodePath("BuiltinAttachments/Right BrushedMotor")
 [node name="Hull" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, 1.91069e-15, 0, 0.135267, -0.640887 )
 
-[node name="HullCollision" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.135267, -0.497507 )
-shape = SubResource( 1 )
-
-[node name="HullTopCollision" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.135267, -0.13662 )
-shape = SubResource( 2 )
-
-[node name="FrontBumperCollision" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.8356, -0.510781 )
-shape = SubResource( 3 )
-
-[node name="BackBumperCollision" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.56473, -0.510887 )
-shape = SubResource( 3 )
-
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform( -0.08, 0, -3.72727e-06, -2.98182e-07, -3.49691e-09, 1, -1.30339e-14, 0.08, 4.37114e-08, 0, 2.32546, -0.603375 )
 texture = ExtResource( 3 )
 
 [node name="LeftBack" type="RayCast" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 1, -4.37114e-08, 1.62921e-07, 4.37114e-08, 1, 7.1215e-15, -0.934, -0.539733, -0.640887 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.934, -0.539733, -0.640887 )
 enabled = true
-cast_to = Vector3( 0, -1.2, 0 )
+cast_to = Vector3( 0, 0, -1.2 )
 script = ExtResource( 1 )
 
 [node name="wheel" type="Spatial" parent="LeftBack"]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, -0.700143, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
 
 [node name="wheel" parent="LeftBack/wheel" instance=ExtResource( 4 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0.502, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.502, 0 )
 
 [node name="LeftFront" type="RayCast" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 1, -4.37114e-08, 1.62921e-07, 4.37114e-08, 1, 7.1215e-15, -0.934, 0.804141, -0.640887 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.934, 0.804141, -0.640887 )
 enabled = true
-cast_to = Vector3( 0, -1.2, 0 )
+cast_to = Vector3( 0, 0, -1.2 )
 script = ExtResource( 1 )
 
 [node name="wheel" type="Spatial" parent="LeftFront"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
 
 [node name="wheel" parent="LeftFront/wheel" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.501972, 0 )
 
 [node name="RightBack" type="RayCast" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 1, -4.37114e-08, 1.62921e-07, 4.37114e-08, 1, 7.1215e-15, 0.934, -0.539733, -0.640887 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.934, -0.539733, -0.640887 )
 enabled = true
-cast_to = Vector3( 0, -1.2, 0 )
+cast_to = Vector3( 0, 0, -1.2 )
 script = ExtResource( 1 )
 
 [node name="wheel" type="Spatial" parent="RightBack"]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, -0.700143, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
 
 [node name="wheel" parent="RightBack/wheel" instance=ExtResource( 4 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0.501972, 0 )
 
 [node name="RightFront" type="RayCast" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 1, -4.37114e-08, 1.62921e-07, 4.37114e-08, 1, 7.1215e-15, 0.934, 0.804267, -0.640887 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.934, 0.804267, -0.640887 )
 enabled = true
-cast_to = Vector3( 0, -1.2, 0 )
+cast_to = Vector3( 0, 0, -1.2 )
 script = ExtResource( 1 )
 
 [node name="wheel" type="Spatial" parent="RightFront"]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, -0.7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
 
 [node name="wheel" parent="RightFront/wheel" instance=ExtResource( 4 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0.502, 0 )
