@@ -19,37 +19,43 @@ extents = Vector3( 0.628528, 0.232967, 0.868031 )
 extents = Vector3( 1.92613, 0.140498, 0.426843 )
 
 [node name="WorkCar" type="RigidBody"]
+custom_integrator = true
 can_sleep = false
 angular_damp = 0.0
 script = ExtResource( 5 )
+cosmetic_wheels = [ NodePath("LeftBack/wheel"), NodePath("LeftFront/wheel"), NodePath("RightBack/wheel"), NodePath("RightFront/wheel") ]
+right_wheels = [ NodePath("RightBack"), NodePath("RightFront") ]
+left_wheels = [ NodePath("LeftBack"), NodePath("LeftFront") ]
+left_motor = NodePath("BuiltinAttachments/Left BrushedMotor")
+right_motor = NodePath("BuiltinAttachments/Right BrushedMotor")
 
 [node name="Hull" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 1, -0.000488704, 4.37114e-08, 0.000488704, 1, 2.1362e-11, 0, 0.13547, -0.641151 )
+transform = Transform( -4.37114e-08, 0, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, 1.91069e-15, 0, 0.135267, -0.640887 )
 
 [node name="HullCollision" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.000488704, -1, 0, 1, -0.000488704, 0, 0.1354, -0.497771 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.135267, -0.497507 )
 shape = SubResource( 1 )
 
 [node name="HullTopCollision" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.000488704, -1, 0, 1, -0.000488704, 0, 0.135224, -0.136884 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.135267, -0.13662 )
 shape = SubResource( 2 )
 
 [node name="FrontBumperCollision" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.000488704, -1, 0, 1, -0.000488704, 0, 1.83574, -0.510214 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.8356, -0.510781 )
 shape = SubResource( 3 )
 
 [node name="BackBumperCollision" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.000488704, -1, 0, 1, -0.000488704, 0, -1.56459, -0.511982 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.56473, -0.510887 )
 shape = SubResource( 3 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( -0.08, 0, -3.72727e-06, -2.98182e-07, -3.90965e-05, 1, -1.45723e-10, 0.08, 0.000488704, 0, 2.32564, -0.602569 )
+transform = Transform( -0.08, 0, -3.72727e-06, -2.98182e-07, -3.49691e-09, 1, -1.30339e-14, 0.08, 4.37114e-08, 0, 2.32546, -0.603375 )
 texture = ExtResource( 3 )
 
 [node name="LeftBack" type="RayCast" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 1, -0.000488704, 1.62921e-07, 0.000488704, 1, 7.96203e-11, -0.934, -0.53953, -0.641481 )
+transform = Transform( -1.62921e-07, 0, 1, 1, -4.37114e-08, 1.62921e-07, 4.37114e-08, 1, 7.1215e-15, -0.934, -0.539733, -0.640887 )
 enabled = true
-cast_to = Vector3( 0, 0, -1.2 )
+cast_to = Vector3( 0, -1.2, 0 )
 script = ExtResource( 1 )
 
 [node name="wheel" type="Spatial" parent="LeftBack"]
@@ -59,9 +65,9 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, -0.7
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0.502, 0 )
 
 [node name="LeftFront" type="RayCast" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 1, -0.000488704, 1.62921e-07, 0.000488704, 1, 7.96203e-11, -0.934, 0.804344, -0.640824 )
+transform = Transform( -1.62921e-07, 0, 1, 1, -4.37114e-08, 1.62921e-07, 4.37114e-08, 1, 7.1215e-15, -0.934, 0.804141, -0.640887 )
 enabled = true
-cast_to = Vector3( 0, 0, -1.2 )
+cast_to = Vector3( 0, -1.2, 0 )
 script = ExtResource( 1 )
 
 [node name="wheel" type="Spatial" parent="LeftFront"]
@@ -71,9 +77,9 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.7
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.501972, 0 )
 
 [node name="RightBack" type="RayCast" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 1, -0.000488704, 1.62921e-07, 0.000488704, 1, 7.96203e-11, 0.934, -0.53953, -0.641481 )
+transform = Transform( -1.62921e-07, 0, 1, 1, -4.37114e-08, 1.62921e-07, 4.37114e-08, 1, 7.1215e-15, 0.934, -0.539733, -0.640887 )
 enabled = true
-cast_to = Vector3( 0, 0, -1.2 )
+cast_to = Vector3( 0, -1.2, 0 )
 script = ExtResource( 1 )
 
 [node name="wheel" type="Spatial" parent="RightBack"]
@@ -83,9 +89,9 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, -0.7
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0.501972, 0 )
 
 [node name="RightFront" type="RayCast" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 1, -0.000488704, 1.62921e-07, 0.000488704, 1, 7.96203e-11, 0.934, 0.80447, -0.640824 )
+transform = Transform( -1.62921e-07, 0, 1, 1, -4.37114e-08, 1.62921e-07, 4.37114e-08, 1, 7.1215e-15, 0.934, 0.804267, -0.640887 )
 enabled = true
-cast_to = Vector3( 0, 0, -1.2 )
+cast_to = Vector3( 0, -1.2, 0 )
 script = ExtResource( 1 )
 
 [node name="wheel" type="Spatial" parent="RightFront"]
@@ -97,22 +103,22 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0.50
 [node name="AttachmentSlots" type="Spatial" parent="."]
 
 [node name="Front" type="Position3D" parent="AttachmentSlots"]
-transform = Transform( 1, 0, 0, 0, -0.000488704, -1, 0, 1, -0.000488704, 0, 1.93527, -0.240271 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.93527, -0.240887 )
 
 [node name="Front2" type="Position3D" parent="AttachmentSlots"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.44073, 0.0953767 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.44089, 0.0945141 )
 
 [node name="FrontTop" type="Position3D" parent="AttachmentSlots"]
-transform = Transform( 1, 0, 0, 0, -0.000488704, -1, 0, 1, -0.000488704, 0, 1.27562, 0.13556 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.2758, 0.135267 )
 
 [node name="Left" type="Position3D" parent="AttachmentSlots"]
-transform = Transform( -4.37114e-08, 0, 1, 1, -0.000488704, 4.37114e-08, 0.000488704, 1, 2.1362e-11, -0.974, 0.135275, -0.241151 )
+transform = Transform( -4.37114e-08, 0, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, 1.91069e-15, -0.974, 0.135267, -0.240887 )
 
 [node name="Right" type="Position3D" parent="AttachmentSlots"]
-transform = Transform( -4.37114e-08, 0, -1, -1, -0.000488704, 4.37114e-08, -0.000488704, 1, 2.1362e-11, 0.974, 0.135275, -0.241151 )
+transform = Transform( -4.37114e-08, 0, -1, -1, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1.91069e-15, 0.974, 0.135267, -0.240887 )
 
 [node name="Back" type="Position3D" parent="AttachmentSlots"]
-transform = Transform( -1, 0, -1.50996e-07, -1.50996e-07, -0.000488704, 1, -7.37925e-11, 1, 0.000488704, 0, -1.66472, -0.242031 )
+transform = Transform( -1, 0, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, 0, -1.66473, -0.240887 )
 
 [node name="BuiltinAttachments" type="Spatial" parent="."]
 
